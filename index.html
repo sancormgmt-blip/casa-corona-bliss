@@ -1,0 +1,2114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Casa Corona Bliss — Guatapé</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200;0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta property="og:title" content="Casa Corona Bliss — Una alianza MMXXVI">
+<meta property="og:description" content="La marca global encuentra su primera casa en Colombia. Guatapé · Antioquia.">
+<meta property="og:type" content="website">
+<meta name="description" content="Propuesta Casa Corona Bliss. Una casa permanente de marca en Guatapé, Colombia.">
+<style>
+  :root {
+    /* Paleta Corona oficial · auditada en corona.com */
+    --navy: #0C2340;
+    --navy-deep: #061629;
+    --gold: #FDC338;
+    --gold-warm: #FFD56A;
+    --gold-deep: #D9A11C;
+    --bright: #FAF5E8;
+    --bright-soft: #F0E8D2;
+    --text: #1A2434;
+    --text-soft: #4F5A6B;
+    --text-mute: #8E8472;
+    --hairline: rgba(12,35,64,0.12);
+    --hairline-gold: rgba(253,195,56,0.32);
+    --gold-soft: #E5B848;
+    --pad: 100px;
+    --pad-chapter: 140px;
+    --container: 1180px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html {
+    scroll-padding-top: 90px;
+    font-variant-numeric: lining-nums tabular-nums;
+  }
+  body {
+    font-family: 'Inter Tight', sans-serif;
+    font-weight: 400;
+    background: var(--bright);
+    color: var(--text);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+    line-height: 1.5;
+  }
+  p { text-wrap: pretty; hyphens: auto; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* ═══ PROGRESS BAR ═══ */
+  .progress {
+    position: fixed; top: 0; left: 0; height: 2px;
+    background: linear-gradient(to right, var(--gold-warm), var(--gold));
+    z-index: 1001; transition: width 0.18s ease-out;
+    box-shadow: 0 0 10px rgba(201,168,118,0.35);
+  }
+
+  /* ═══ GRANO FÍLMICO ÚNICO ═══ */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    pointer-events: none; z-index: 998;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='280' height='280'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.25'/></svg>");
+    opacity: 0.04;
+    mix-blend-mode: soft-light;
+  }
+
+  /* ═══ TRATAMIENTO UNIFICADO DE FOTOS (gentle) ═══ */
+  .media {
+    position: relative;
+    overflow: hidden;
+    background: var(--navy);
+  }
+  .media img, .media video {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: saturate(0.82) contrast(0.98) brightness(1.01) sepia(0.06) hue-rotate(-4deg);
+  }
+  .media::after {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at center, transparent 65%, rgba(30,42,62,0.22) 100%);
+    box-shadow: inset 0 0 140px 10px rgba(30,42,62,0.22);
+    pointer-events: none; z-index: 2;
+  }
+
+  /* ═══ MOTIF RECURRENTE — hairline gold top-left en cada chapter ═══ */
+  .chapter {
+    position: relative;
+    z-index: 1;
+  }
+  .chapter::before {
+    content: '';
+    position: absolute;
+    top: 80px; left: 60px;
+    width: 72px; height: 1px;
+    background: var(--gold);
+    z-index: 5;
+  }
+  .chapter.dark::before { background: var(--gold); }
+  /* Section content always above any decorative layers */
+  .chapter > .split-inner,
+  .chapter > .twin-inner,
+  .chapter > .typo-inner,
+  .chapter > .invest-inner,
+  .chapter > .benchmark-inner,
+  .chapter > .kpis-inner { position: relative; z-index: 4; }
+  .tree-divider { position: relative; z-index: 2; }
+
+  /* ═══ NAV ═══ */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 26px 60px;
+    transition: background 0.4s, padding 0.4s, backdrop-filter 0.4s;
+  }
+  nav.scrolled {
+    background: rgba(251,244,228,0.95);
+    -webkit-backdrop-filter: blur(22px);
+    backdrop-filter: blur(22px);
+    padding: 14px 60px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .nav-brand {
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-variation-settings: "opsz" 14;
+    font-size: 13px; letter-spacing: 0.2em;
+    text-transform: uppercase; font-weight: 400;
+    color: var(--bright); transition: color 0.4s;
+  }
+  nav.scrolled .nav-brand { color: var(--navy); }
+  .nav-brand .x {
+    font-style: italic; color: var(--gold);
+    margin: 0 6px; font-size: 15px;
+  }
+  .nav-links { display: flex; gap: 38px; }
+  .nav-links a {
+    color: rgba(251,244,228,0.8); text-decoration: none;
+    font-size: 11px; font-weight: 400; letter-spacing: 0.18em;
+    text-transform: uppercase; transition: color 0.3s;
+    display: flex; align-items: baseline; gap: 8px;
+  }
+  nav.scrolled .nav-links a { color: var(--text-soft); }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-links a span {
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-style: italic; font-size: 12px;
+    color: var(--gold);
+    font-variation-settings: "opsz" 14;
+  }
+
+  /* ═══ TYPOGRAPHIC PRIMITIVES ═══ */
+  .mark {
+    display: flex; align-items: baseline; gap: 20px;
+    margin-bottom: 44px;
+  }
+  .mark .ro {
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-style: italic; font-weight: 400;
+    font-size: 16px; color: var(--gold);
+    font-variation-settings: "opsz" 18;
+    letter-spacing: 0.02em;
+  }
+  .mark .lb {
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-variation-settings: "opsz" 14;
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--text-mute);
+  }
+  .chapter.dark .mark .lb { color: rgba(251,244,228,0.62); }
+
+  .title {
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-variation-settings: "opsz" 72;
+    font-size: clamp(38px, 4.8vw, 68px);
+    font-weight: 300; line-height: 1.08;
+    color: var(--navy);
+    letter-spacing: -0.02em;
+    margin-bottom: 42px;
+    max-width: 19ch;
+  }
+  .title em { font-style: italic; font-weight: 300; color: var(--gold-deep); }
+  .chapter.dark .title { color: var(--bright); }
+  .chapter.dark .title em { color: var(--gold-warm); }
+
+  .lead {
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-variation-settings: "opsz" 24;
+    font-size: clamp(19px, 1.6vw, 23px);
+    font-weight: 400; line-height: 1.5;
+    color: var(--text);
+    max-width: 48ch; margin-bottom: 36px;
+    letter-spacing: -0.002em;
+  }
+  .chapter.dark .lead { color: rgba(248,242,228,0.94); }
+
+  .body-text {
+    font-size: 15.5px; font-weight: 400;
+    line-height: 1.72; color: var(--text-soft);
+    max-width: 54ch;
+    letter-spacing: 0.005em;
+  }
+  .body-text b { color: var(--navy); font-weight: 500; }
+  .chapter.dark .body-text { color: rgba(248,242,228,0.86); }
+  .chapter.dark .body-text b { color: var(--gold-warm); }
+
+  .pull {
+    margin-top: 36px; padding-top: 32px;
+    border-top: 1px solid var(--hairline-gold);
+  }
+  .pull p {
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-variation-settings: "opsz" 24;
+    font-size: 19px; font-weight: 400;
+    color: var(--navy);
+    line-height: 1.45; max-width: 40ch;
+  }
+  .chapter.dark .pull p { color: var(--gold); }
+
+  /* ═══ LAYOUT A — CINEMATIC FULL-BLEED ═══ */
+  .cine {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 680px;
+    overflow: hidden;
+    background: var(--navy-deep);
+  }
+  .cine::after {
+    content: ''; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at center, transparent 35%, rgba(30,42,62,0.35) 100%),
+      linear-gradient(to bottom, rgba(30,42,62,0.15) 0%, rgba(30,42,62,0.05) 50%, rgba(30,42,62,0.55) 100%);
+    z-index: 1; pointer-events: none;
+  }
+  .cine .media { position: absolute; inset: -8% 0 -8% 0; height: auto; }
+  .cine .media img, .cine .media video { height: 116%; }
+  .cine-caption {
+    position: absolute; z-index: 3;
+    color: var(--bright);
+  }
+  .cine-caption.tl { top: 80px; left: 60px; }
+  .cine-caption.br {
+    bottom: 60px; right: 60px; text-align: right;
+    max-width: 440px;
+  }
+  .cine-caption.bl {
+    bottom: 60px; left: 60px;
+    max-width: 540px;
+  }
+  .cine-caption .ro {
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-style: italic; font-size: 14px;
+    color: var(--gold);
+    letter-spacing: 0.22em; text-transform: uppercase;
+    font-variation-settings: "opsz" 14;
+  }
+  .cine-caption .lb {
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-variation-settings: "opsz" 14;
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: rgba(251,244,228,0.85);
+    margin-left: 16px;
+    text-shadow: 0 1px 8px rgba(11,20,40,0.6);
+  }
+  .cine-caption .ro,
+  .cine-caption .big,
+  .cine-caption .detail {
+    text-shadow: 0 1px 12px rgba(11,20,40,0.55);
+  }
+  .cine-caption .big {
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-variation-settings: "opsz" 72;
+    font-size: clamp(32px, 4vw, 54px);
+    font-weight: 300; line-height: 1.05;
+    color: var(--bright);
+    letter-spacing: -0.025em;
+    margin-top: 20px;
+    max-width: 16ch;
+  }
+  .cine-caption .big em { font-style: italic; color: var(--gold); }
+  .cine-caption .detail {
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-style: italic; font-variation-settings: "opsz" 18;
+    font-size: 14.5px; letter-spacing: 0.02em;
+    color: rgba(251,244,228,0.86);
+    line-height: 1.55; margin-top: 16px;
+    text-shadow: 0 1px 10px rgba(11,20,40,0.55);
+  }
+
+  /* ═══ LAYOUT B — EDITORIAL SPLIT ═══ */
+  .split {
+    padding: var(--pad-chapter) 60px 140px;
+  }
+  .split-inner {
+    max-width: var(--container); margin: 0 auto;
+  }
+  .split-head {
+    margin-bottom: 56px;
+    max-width: 900px;
+  }
+  .split-grid {
+    display: grid;
+    grid-template-columns: 5fr 6fr;
+    gap: 100px;
+    align-items: start;
+  }
+  .split-grid.reverse { grid-template-columns: 6fr 5fr; }
+  .split-grid .media {
+    aspect-ratio: 4/5;
+  }
+  /* Variante landscape para fotos horizontales */
+  .split-grid.landscape .media {
+    aspect-ratio: 16/10;
+  }
+  /* Variante tall para portrait fotos */
+  .split-grid.tall .media {
+    aspect-ratio: 3/4;
+  }
+  .split-text {
+    padding-top: 20px;
+  }
+
+  /* Chapter backgrounds - only 2 */
+  .bright { background: var(--bright); }
+  .dark { background: var(--navy); color: var(--bright); }
+
+  /* ═══ LAYOUT B VARIANT — TWIN ═══ */
+  .twin {
+    padding: var(--pad-chapter) 60px 140px;
+  }
+  .twin-inner {
+    max-width: 1400px; margin: 0 auto;
+  }
+  .twin-head {
+    text-align: center; max-width: 720px;
+    margin: 0 auto 60px;
+  }
+  .twin-head .mark { justify-content: center; }
+  .twin-head .title { margin-left: auto; margin-right: auto; }
+  .twin-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+  .twin-card {
+    position: relative; min-height: 640px;
+    overflow: hidden;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 60px;
+    color: var(--bright);
+  }
+  .twin-card .media { position: absolute; inset: 0; z-index: 0; }
+  .twin-card .media img { object-position: center 60%; }
+  .twin-card.glamping .media img { object-position: left bottom; }
+  .twin-card::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(30,42,62,0.88) 0%, rgba(30,42,62,0.28) 55%, rgba(30,42,62,0.08) 100%);
+    z-index: 1;
+  }
+  .twin-card .content { position: relative; z-index: 2; }
+  .twin-label {
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-variation-settings: "opsz" 14;
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 18px;
+  }
+  .twin-title {
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-variation-settings: "opsz" 48;
+    font-size: 40px; font-weight: 300; line-height: 1.05;
+    margin-bottom: 22px; letter-spacing: -0.02em;
+    max-width: 13ch;
+  }
+  .twin-title em { font-style: italic; color: var(--gold); }
+  .twin-desc {
+    font-size: 15.5px; font-weight: 400; line-height: 1.6;
+    color: rgba(251,244,228,0.94);
+    margin-bottom: 26px; max-width: 42ch;
+    text-shadow: 0 1px 12px rgba(11,20,40,0.5);
+  }
+  .twin-features {
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-style: italic; font-variation-settings: "opsz" 18;
+    font-size: 13.5px; font-weight: 400;
+    color: rgba(251,244,228,0.85);
+    letter-spacing: 0.01em; line-height: 1.75;
+    text-shadow: 0 1px 10px rgba(11,20,40,0.5);
+  }
+
+  /* ═══ LAYOUT C — TYPOGRAPHIC MOMENT ═══ */
+  .typo {
+    padding: var(--pad-chapter) 60px 120px;
+    background: var(--navy);
+    color: var(--bright);
+  }
+  .typo-inner { max-width: 1400px; margin: 0 auto; }
+  .typo-head {
+    text-align: center; max-width: 900px;
+    margin: 0 auto 70px;
+  }
+  .typo-head .mark { justify-content: center; }
+  .typo-head .title { margin-left: auto; margin-right: auto; color: var(--bright); }
+  .typo-scenes {
+    display: flex; flex-direction: column;
+  }
+  .typo-scene {
+    padding: 50px 0;
+    border-top: 1px solid rgba(253,195,56,0.18);
+    display: grid;
+    grid-template-columns: 5fr 6fr;
+    gap: 80px; align-items: center;
+  }
+  .typo-scene.hero-scene {
+    padding: 60px 0 50px;
+    border-top: none;
+    grid-template-columns: 7fr 5fr;
+    gap: 100px;
+    align-items: end;
+  }
+  .typo-scene.hero-scene .typo-huge {
+    font-size: clamp(110px, 13vw, 180px);
+  }
+  .typo-scene.hero-scene .typo-label {
+    font-size: clamp(28px, 3vw, 44px);
+    line-height: 1.14;
+    max-width: 22ch;
+    font-weight: 400;
+  }
+  .typo-supports {
+    padding-top: 50px; padding-bottom: 20px;
+    border-top: 1px solid rgba(253,195,56,0.22);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+  }
+  .typo-support {
+    display: flex; flex-direction: column; gap: 18px;
+    padding-top: 24px;
+  }
+  .typo-support .typo-index {
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-style: italic; font-size: 12px;
+    color: var(--gold-warm);
+    letter-spacing: 0.18em; text-transform: uppercase;
+    font-variation-settings: "opsz" 14;
+  }
+  .typo-support .num {
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-variation-settings: "opsz" 72;
+    font-weight: 300;
+    font-size: clamp(56px, 6vw, 84px);
+    color: var(--gold-warm);
+    line-height: 0.95; letter-spacing: -0.035em;
+    font-variant-numeric: lining-nums tabular-nums;
+  }
+  .typo-support .num .sfx {
+    font-size: 0.45em; font-style: italic;
+    margin-left: 4px; font-weight: 300;
+  }
+  .typo-support .lbl {
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-variation-settings: "opsz" 24;
+    font-size: 18px; font-weight: 400;
+    color: var(--bright); line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+  .typo-support .lbl em { font-style: italic; color: var(--gold-warm); }
+  .typo-support .ctx-mini {
+    font-size: 13px; line-height: 1.55;
+    color: rgba(250,245,232,0.7);
+    padding-top: 14px;
+    border-top: 1px solid rgba(253,195,56,0.18);
+    max-width: 30ch;
+  }
+  .typo-figure {
+    display: flex; flex-direction: column; gap: 18px;
+  }
+  .typo-index {
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-style: italic; font-size: 13px;
+    color: var(--gold);
+    letter-spacing: 0.2em; text-transform: uppercase;
+    font-variation-settings: "opsz" 14;
+  }
+  .typo-huge {
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-variation-settings: "opsz" 72;
+    font-weight: 300;
+    font-size: clamp(88px, 11vw, 148px);
+    color: var(--gold-warm);
+    line-height: 0.9; letter-spacing: -0.038em;
+    font-variant-numeric: lining-nums tabular-nums;
+  }
+  .typo-huge .sfx {
+    font-size: 0.38em; font-style: italic;
+    margin-left: 6px; font-weight: 300;
+    letter-spacing: -0.02em;
+  }
+  .typo-label {
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-variation-settings: "opsz" 24;
+    font-size: clamp(22px, 2.2vw, 32px);
+    font-weight: 300; line-height: 1.2;
+    color: var(--bright);
+    letter-spacing: -0.015em;
+    margin-bottom: 20px;
+    max-width: 24ch;
+  }
+  .typo-label em { font-style: italic; color: var(--gold); }
+  .typo-ctx {
+    font-size: 14px; font-weight: 400;
+    line-height: 1.65; color: rgba(251,244,228,0.72);
+    padding-top: 18px; border-top: 1px solid rgba(245,184,46,0.18);
+    max-width: 42ch;
+  }
+  .typo-foot {
+    margin: 60px auto 0; max-width: 700px;
+    text-align: center;
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-variation-settings: "opsz" 24;
+    font-size: 20px; font-weight: 300;
+    line-height: 1.55; color: rgba(251,244,228,0.90);
+    padding-top: 40px;
+    border-top: 1px solid rgba(245,184,46,0.22);
+  }
+  .typo-foot b { color: var(--gold); font-weight: 500; }
+
+  /* ═══ HERO ═══ */
+  .hero {
+    min-height: 100vh; position: relative;
+    display: flex; flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 60px 80px;
+    overflow: hidden;
+    background: var(--navy-deep);
+  }
+  .hero .media {
+    position: absolute; inset: -8% 0 -8% 0; z-index: 0;
+    animation: kenburns 24s ease-in-out infinite alternate;
+  }
+  .hero .media img { height: 116%; }
+  @keyframes kenburns {
+    0% { transform: scale(1.02) translate3d(0, 0, 0); }
+    100% { transform: scale(1.10) translate3d(-1%, -2%, 0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero .media { animation: none; }
+  }
+  .hero::after {
+    content: ''; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 30% 65%, transparent 18%, rgba(6,22,41,0.62) 92%),
+      linear-gradient(to bottom, rgba(6,22,41,0.42) 0%, rgba(6,22,41,0.05) 35%, rgba(6,22,41,0.92) 100%);
+    z-index: 1;
+  }
+  .hero > *:not(.media) { position: relative; z-index: 2; }
+
+  .hero-top {
+    position: absolute; top: 100px; left: 60px; right: 60px;
+    display: flex; justify-content: space-between; z-index: 3;
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-variation-settings: "opsz" 14;
+    font-size: 12px; letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(251,244,228,0.7);
+  }
+  .hero-top .ro { color: var(--gold); font-style: italic; margin-right: 12px; }
+  .hero-top > div:last-child { text-align: right; line-height: 1.9; }
+
+  .hero-content {
+    max-width: 1400px; margin: 0 auto; width: 100%;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 60px; align-items: end;
+  }
+  .hero-h1-wrap h1 {
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-variation-settings: "opsz" 72;
+    font-size: clamp(56px, 8.5vw, 120px);
+    font-weight: 300; line-height: 0.98;
+    color: var(--bright);
+    letter-spacing: -0.032em;
+    text-shadow: 0 2px 24px rgba(30,42,62,0.28);
+  }
+  .hero-h1-wrap h1 em { font-style: italic; font-weight: 300; color: var(--gold-warm); }
+  .hero-thesis {
+    padding-bottom: 24px;
+  }
+  .hero-thesis .quote {
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-variation-settings: "opsz" 24;
+    font-size: 22px; font-style: italic; font-weight: 300;
+    color: rgba(251,244,228,0.96);
+    line-height: 1.4; margin-bottom: 22px;
+    max-width: 36ch;
+    letter-spacing: -0.005em;
+    text-shadow: 0 1px 14px rgba(11,20,40,0.55);
+  }
+  .hero-thesis .quote::before {
+    content: '—'; color: var(--gold); margin-right: 10px;
+  }
+  .hero-thesis .tease {
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-variation-settings: "opsz" 14;
+    font-size: 11px; letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: flex; align-items: center; gap: 16px;
+  }
+  .hero-thesis .tease::before {
+    content: ''; width: 30px; height: 1px;
+    background: var(--gold);
+  }
+
+  /* ═══ COBRAND ═══ */
+  .cobrand {
+    padding: 110px 60px;
+    text-align: center;
+    position: relative;
+    background: var(--bright);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .cobrand::before {
+    content: ''; position: absolute;
+    left: 50%; top: 50%; transform: translate(-50%, -50%);
+    width: 900px; height: 900px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(245,184,46,0.08) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .cobrand > * { position: relative; z-index: 1; }
+  .cobrand-pre {
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-style: italic; font-size: 13px;
+    color: var(--gold);
+    letter-spacing: 0.25em; text-transform: uppercase;
+    font-variation-settings: "opsz" 14;
+    margin-bottom: 44px;
+    display: inline-flex; align-items: center; gap: 18px;
+  }
+  .cobrand-pre .ln {
+    width: 50px; height: 1px; background: var(--hairline-gold);
+  }
+  .cobrand-statement {
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-variation-settings: "opsz" 72;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 300; line-height: 1.15;
+    color: var(--navy);
+    letter-spacing: -0.02em;
+    max-width: 22ch; margin: 0 auto 70px;
+  }
+  .cobrand-statement em {
+    font-style: italic; color: var(--gold-soft);
+  }
+  .cobrand-logos {
+    display: flex; align-items: center; justify-content: center;
+    gap: 72px; margin-bottom: 48px;
+  }
+  .cobrand img { height: 96px; width: auto; }
+  .cobrand img.bliss {
+    height: 122px;
+    filter: drop-shadow(0 2px 10px rgba(253,195,56,0.16));
+  }
+  .cobrand .x {
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-style: italic; font-size: 32px;
+    color: var(--gold);
+    font-variation-settings: "opsz" 48;
+    opacity: 0.55;
+  }
+  .cobrand-foot {
+    display: inline-flex; align-items: center; gap: 22px;
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-style: italic; font-size: 12px;
+    color: var(--text-mute);
+    letter-spacing: 0.25em; text-transform: uppercase;
+    font-variation-settings: "opsz" 14;
+  }
+  .cobrand-foot .ln {
+    width: 50px; height: 1px; background: var(--hairline-gold);
+  }
+
+  /* ═══ INVERSIÓN ═══ */
+  .invest {
+    padding: 140px 60px;
+    background: var(--bright);
+  }
+  .invest-inner { max-width: var(--container); margin: 0 auto; }
+  .invest-head {
+    text-align: center; max-width: 780px; margin: 0 auto 60px;
+  }
+  .invest-head .mark { justify-content: center; }
+  .invest-head .title { margin-left: auto; margin-right: auto; }
+  .invest-head .lead { margin-left: auto; margin-right: auto; }
+  .invest-cols {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; margin-bottom: 0;
+  }
+  .invest-col h3 {
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-variation-settings: "opsz" 36;
+    font-size: 24px; font-weight: 400;
+    color: var(--navy);
+    padding-bottom: 22px; margin-bottom: 30px;
+    border-bottom: 1px solid var(--hairline-gold);
+    letter-spacing: -0.015em;
+  }
+  .invest-col h3 em {
+    font-style: italic; color: var(--gold-soft);
+    margin-right: 12px; font-size: 18px;
+  }
+  .invest-entry { padding: 20px 0; }
+  .invest-entry + .invest-entry { border-top: 1px solid var(--hairline); }
+  .invest-entry h5 {
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-variation-settings: "opsz" 24;
+    font-size: 18px; font-weight: 500;
+    color: var(--navy); margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+  .invest-entry p {
+    font-size: 13px; font-weight: 400;
+    line-height: 1.6; color: var(--text-soft);
+    max-width: 44ch;
+  }
+  .invest-note {
+    margin-top: 90px;
+    display: flex; align-items: center; justify-content: center;
+    gap: 30px;
+    max-width: 920px; margin-left: auto; margin-right: auto;
+    padding-top: 40px; padding-bottom: 20px;
+    border-top: 1px solid var(--hairline-gold);
+  }
+  .invest-note-ln {
+    flex: 0 0 40px; height: 1px;
+    background: var(--hairline-gold);
+  }
+  .invest-note p {
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-variation-settings: "opsz" 24;
+    font-size: 15px; font-weight: 400; font-style: italic;
+    line-height: 1.55; color: var(--text-soft);
+    text-align: center; max-width: 60ch;
+  }
+  .invest-note p em {
+    font-style: italic; color: var(--gold-deep);
+    font-weight: 500;
+  }
+  .invest-total {
+    padding-top: 40px;
+    border-top: 1px solid var(--hairline-gold);
+    display: grid; grid-template-columns: 1fr 2fr;
+    gap: 60px; align-items: end;
+  }
+  .invest-total .tag {
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-variation-settings: "opsz" 14;
+    font-size: 11px; font-weight: 500;
+    color: var(--text-soft);
+    letter-spacing: 0.22em; text-transform: uppercase;
+    line-height: 1.7;
+  }
+  .invest-total .big {
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-variation-settings: "opsz" 72;
+    font-size: clamp(56px, 8vw, 104px);
+    font-weight: 200; color: var(--navy);
+    line-height: 0.92; letter-spacing: -0.035em;
+    font-variant-numeric: lining-nums tabular-nums;
+  }
+  .invest-total .big .usd {
+    font-size: 0.32em; font-style: italic;
+    color: var(--gold-soft); font-weight: 300;
+    margin-left: 10px;
+  }
+  .invest-total .desc {
+    grid-column: 1 / -1;
+    padding-top: 32px; margin-top: 8px;
+    border-top: 1px solid var(--hairline);
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-variation-settings: "opsz" 20;
+    font-size: 15px; font-weight: 400;
+    color: var(--text-soft);
+    max-width: 60ch; line-height: 1.55;
+  }
+
+  /* ═══ CIERRE ═══ */
+  .close {
+    min-height: 100vh;
+    position: relative;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 140px 60px;
+    text-align: center;
+    overflow: hidden;
+    background: var(--navy-deep);
+  }
+  .close .media { position: absolute; inset: -8% 0 -8% 0; z-index: 0; }
+  .close .media video { height: 116%; }
+  .close::after {
+    content: ''; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at center, transparent 35%, rgba(30,42,62,0.42) 100%),
+      linear-gradient(to bottom, rgba(30,42,62,0.45) 0%, rgba(30,42,62,0.10) 40%, rgba(30,42,62,0.75) 100%);
+    z-index: 1;
+  }
+  .close > *:not(.media) { position: relative; z-index: 2; }
+  .close .pre {
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-style: italic; font-size: 13px;
+    color: var(--gold);
+    letter-spacing: 0.25em; text-transform: uppercase;
+    font-variation-settings: "opsz" 14;
+    margin-bottom: 40px;
+    display: inline-flex; align-items: center; gap: 18px;
+  }
+  .close .pre .ln {
+    width: 50px; height: 1px; background: var(--gold);
+    opacity: 0.55;
+  }
+  .close h2 {
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-variation-settings: "opsz" 72;
+    font-size: clamp(44px, 6.5vw, 92px);
+    font-weight: 200; line-height: 1.02;
+    color: var(--bright);
+    letter-spacing: -0.035em;
+    margin-bottom: 44px;
+    max-width: 16ch;
+    text-shadow: 0 2px 30px rgba(11,20,40,0.4);
+  }
+  .close h2 em { font-style: italic; font-weight: 300; color: var(--gold); }
+  .close .quote {
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-variation-settings: "opsz" 24;
+    font-weight: 300;
+    font-size: 22px; line-height: 1.5;
+    color: rgba(251,244,228,0.88);
+    max-width: 40ch; margin: 0 auto 48px;
+    letter-spacing: -0.005em;
+  }
+  .close .rule {
+    width: 60px; height: 1px;
+    background: var(--gold);
+    margin: 0 auto 48px;
+    opacity: 0.6;
+  }
+  .close .ask {
+    display: inline-flex; align-items: center; gap: 16px;
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-style: italic; font-size: 13px;
+    color: var(--gold);
+    letter-spacing: 0.25em; text-transform: uppercase;
+    font-variation-settings: "opsz" 14;
+    margin-bottom: 60px;
+  }
+  .close .ask .ln { width: 40px; height: 1px; background: var(--gold); opacity: 0.55; }
+  .close-signature {
+    display: flex; align-items: center; justify-content: center;
+    gap: 40px;
+  }
+  .close-signature img { height: 84px; width: auto; }
+  .close-signature img.corona-mark {
+    height: 72px;
+    background: rgba(250,245,232,0.95);
+    padding: 12px 20px;
+    border-radius: 2px;
+  }
+  .close-signature .x {
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-style: italic; font-size: 28px;
+    color: rgba(245,184,46,0.55);
+    font-variation-settings: "opsz" 36;
+  }
+  .close-foot {
+    position: absolute; bottom: 40px; left: 0; right: 0;
+    z-index: 3;
+    display: flex; justify-content: center; gap: 28px;
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-style: italic; font-size: 11px;
+    color: rgba(251,244,228,0.5);
+    letter-spacing: 0.2em; text-transform: uppercase;
+    font-variation-settings: "opsz" 14;
+  }
+  .close-foot a {
+    color: rgba(245,184,46,0.7);
+    text-decoration: none;
+  }
+  .close-foot a:hover { color: var(--gold); }
+
+  /* ═══ CINE-PORTRAIT (foto vertical preserva aspect ratio) ═══ */
+  .cine-portrait {
+    position: relative;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    background: var(--navy);
+    overflow: hidden;
+  }
+  .cine-portrait.reverse {
+    grid-template-columns: 7fr 5fr;
+  }
+  .cine-portrait .pframe {
+    position: relative;
+    overflow: hidden;
+    background: var(--navy-deep);
+  }
+  .cine-portrait .pframe img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    filter: saturate(0.85) contrast(1.0) brightness(0.96) sepia(0.06) hue-rotate(-4deg);
+  }
+  .cine-portrait .pframe::after {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at center, transparent 60%, rgba(6,22,41,0.32) 100%);
+    box-shadow: inset 0 0 140px 20px rgba(6,22,41,0.35);
+    pointer-events: none;
+  }
+  .cine-portrait .pcontent {
+    position: relative;
+    display: flex; flex-direction: column;
+    justify-content: center;
+    padding: 70px 60px;
+    color: var(--bright);
+    background: var(--navy);
+  }
+  .cine-portrait .pcontent::before {
+    content: ''; position: absolute;
+    top: 80px; left: 80px;
+    width: 72px; height: 1px;
+    background: var(--gold);
+  }
+  .cine-portrait .pmark {
+    display: flex; align-items: baseline; gap: 18px;
+    margin-bottom: 36px;
+  }
+  .cine-portrait .pmark .ro {
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-style: italic; font-size: 16px;
+    color: var(--gold);
+    font-variation-settings: "opsz" 18;
+  }
+  .cine-portrait .pmark .lb {
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-variation-settings: "opsz" 14;
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: rgba(250,245,232,0.72);
+  }
+  .cine-portrait .ptitle {
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-variation-settings: "opsz" 72;
+    font-size: clamp(38px, 4.4vw, 64px);
+    font-weight: 300;
+    line-height: 1.05; letter-spacing: -0.025em;
+    color: var(--bright);
+    margin-bottom: 32px;
+    max-width: 18ch;
+  }
+  .cine-portrait .ptitle em {
+    font-style: italic; color: var(--gold);
+  }
+  .cine-portrait .pdetail {
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-style: italic; font-variation-settings: "opsz" 24;
+    font-size: 18px; font-weight: 300;
+    line-height: 1.55; color: rgba(250,245,232,0.85);
+    max-width: 38ch;
+    padding-top: 28px;
+    border-top: 1px solid rgba(253,195,56,0.32);
+  }
+
+  /* ═══ TYPOGRAPHIC STATEMENT (full-bleed, no imagen) ═══ */
+  .typo-statement {
+    padding: 150px 60px 110px;
+    position: relative;
+  }
+  .typo-statement-inner {
+    max-width: 1240px; margin: 0 auto;
+  }
+  .huge-statement {
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-variation-settings: "opsz" 72;
+    font-size: clamp(54px, 7.5vw, 116px);
+    font-weight: 300;
+    line-height: 0.96;
+    letter-spacing: -0.032em;
+    color: var(--navy);
+    margin: 40px 0 50px;
+    max-width: 19ch;
+  }
+  .huge-statement em {
+    font-style: italic; font-weight: 300;
+    color: var(--gold-deep);
+  }
+  .statement-foot {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    padding-top: 50px;
+    border-top: 1px solid var(--hairline-gold);
+    max-width: 1100px;
+  }
+  .statement-foot .lead-text {
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-variation-settings: "opsz" 24;
+    font-size: 21px; font-weight: 400;
+    line-height: 1.5; color: var(--text);
+    letter-spacing: -0.005em;
+  }
+  .statement-foot .pull-text {
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-style: italic; font-variation-settings: "opsz" 24;
+    font-size: 18px; font-weight: 300;
+    line-height: 1.55; color: var(--gold-deep);
+    align-self: end;
+    max-width: 32ch;
+  }
+
+  /* ═══ WAVE MOTIF (separator Corona-native) ═══ */
+  .tree-divider {
+    display: flex; align-items: center; justify-content: center;
+    padding: 50px 0;
+    background: var(--bright);
+  }
+  .tree-divider.dark { background: var(--navy); }
+  .tree-divider svg {
+    width: 180px; height: auto;
+    opacity: 0.55;
+  }
+  .tree-divider.dark svg { opacity: 0.7; }
+
+  /* ═══ BENCHMARK SECTION ═══ */
+  .benchmark {
+    padding: 140px 60px;
+    background: var(--bright);
+  }
+  .benchmark-inner { max-width: var(--container); margin: 0 auto; }
+  .benchmark-head {
+    text-align: center; max-width: 800px; margin: 0 auto 60px;
+  }
+  .benchmark-head .mark { justify-content: center; }
+  .benchmark-head .title { margin-left: auto; margin-right: auto; }
+  .benchmark-grid {
+    display: grid;
+    grid-template-columns: 7fr 5fr;
+    gap: 40px;
+    align-items: stretch;
+  }
+  .benchmark-side {
+    display: flex; flex-direction: column; gap: 0;
+  }
+  .benchmark-card {
+    padding: 36px 0;
+    border-top: 1px solid var(--hairline-gold);
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .benchmark-card:last-child { border-bottom: 1px solid var(--hairline); }
+  .benchmark-card .place {
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-style: italic; font-size: 13px;
+    color: var(--gold-deep);
+    letter-spacing: 0.18em; text-transform: uppercase;
+    font-variation-settings: "opsz" 14;
+  }
+  .benchmark-card h4 {
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-variation-settings: "opsz" 36;
+    font-size: 24px; font-weight: 400;
+    color: var(--navy);
+    letter-spacing: -0.018em;
+    line-height: 1.15;
+  }
+  .benchmark-card .meta {
+    font-size: 13.5px; font-weight: 400; line-height: 1.6;
+    color: var(--text-soft);
+    margin-top: 6px;
+  }
+  .benchmark-card .meta b { color: var(--navy); font-weight: 500; }
+  .benchmark-card.bliss {
+    background-image:
+      linear-gradient(135deg, rgba(6,22,41,0.82) 0%, rgba(6,22,41,0.45) 55%, rgba(12,35,64,0.75) 100%),
+      url('casa-corona-assets/club-night.jpeg');
+    background-size: cover; background-position: center;
+    color: var(--bright);
+    padding: 44px 40px;
+    border: none;
+    min-height: 420px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+  }
+  .benchmark-card.bliss::before {
+    content: ''; position: absolute;
+    top: -100px; right: -100px;
+    width: 360px; height: 360px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(253,195,56,0.22) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .benchmark-card.bliss::after {
+    content: ''; position: absolute; inset: 0;
+    box-shadow: inset 0 0 140px 20px rgba(6,22,41,0.4);
+    pointer-events: none;
+  }
+  .benchmark-card.bliss > * { position: relative; z-index: 2; }
+  .benchmark-card.bliss .place {
+    color: var(--gold-warm);
+    font-size: 14px;
+  }
+  .benchmark-card.bliss h4 {
+    color: var(--bright);
+    font-size: 38px;
+    line-height: 1.05;
+    max-width: 14ch;
+  }
+  .benchmark-card.bliss .meta {
+    color: rgba(248,242,228,0.82);
+    font-size: 14.5px;
+    line-height: 1.65;
+    max-width: 36ch;
+  }
+  .benchmark-card.bliss .meta b { color: var(--gold-warm); }
+  .benchmark-card.bliss .badge {
+    display: inline-flex; align-items: center; gap: 12px;
+    margin-top: 18px;
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-style: italic; font-size: 12px;
+    color: var(--gold-warm);
+    letter-spacing: 0.18em; text-transform: uppercase;
+    font-variation-settings: "opsz" 14;
+  }
+  .benchmark-card.bliss .badge .ln {
+    width: 24px; height: 1px; background: var(--gold-warm); opacity: 0.55;
+  }
+  .benchmark-foot {
+    margin-top: 80px; padding-top: 40px;
+    border-top: 1px solid var(--hairline);
+    text-align: center;
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-variation-settings: "opsz" 24;
+    font-size: 19px; font-style: italic; font-weight: 300;
+    color: var(--text-soft);
+    max-width: 56ch; margin-left: auto; margin-right: auto;
+    line-height: 1.55;
+  }
+
+  /* ═══ KPIs SECTION ═══ */
+  .kpis {
+    padding: 140px 60px;
+    background: var(--navy);
+    color: var(--bright);
+  }
+  .kpis-inner { max-width: var(--container); margin: 0 auto; }
+  .kpis-head {
+    text-align: center; max-width: 800px; margin: 0 auto 60px;
+  }
+  .kpis-head .mark { justify-content: center; }
+  .kpis-head .mark .lb { color: rgba(248,242,228,0.62); }
+  .kpis-head .title { color: var(--bright); margin-left: auto; margin-right: auto; }
+  .kpis-grid {
+    display: flex; flex-direction: column;
+    gap: 90px;
+  }
+  .kpi-lead {
+    padding-top: 36px;
+    border-top: 2px solid var(--gold);
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .kpi-lead .index {
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-style: italic; font-size: 14px;
+    color: var(--gold);
+    letter-spacing: 0.2em; text-transform: uppercase;
+    font-variation-settings: "opsz" 14;
+    margin-bottom: 22px;
+  }
+  .kpi-lead h4 {
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-variation-settings: "opsz" 72;
+    font-size: clamp(36px, 4.2vw, 56px);
+    font-weight: 300;
+    color: var(--bright);
+    letter-spacing: -0.025em;
+    margin-bottom: 0;
+    line-height: 1.05;
+    max-width: 14ch;
+  }
+  .kpi-lead h4 em { font-style: italic; color: var(--gold); }
+  .kpi-lead .lead-text {
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-variation-settings: "opsz" 24;
+    font-size: 19px; font-weight: 400;
+    color: rgba(250,245,232,0.86);
+    line-height: 1.5; letter-spacing: -0.005em;
+    margin-bottom: 28px;
+  }
+  .kpi-lead .target {
+    display: block;
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-style: italic;
+    font-variation-settings: "opsz" 24;
+    font-size: 22px; font-weight: 400;
+    color: var(--gold-warm);
+    padding-top: 22px;
+    border-top: 1px solid rgba(253,195,56,0.28);
+    letter-spacing: 0.005em;
+    max-width: 38ch;
+  }
+  .kpi-supports {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(253,195,56,0.22);
+  }
+  .kpi-block {
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .kpi-block .index {
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-style: italic; font-size: 12px;
+    color: var(--gold-warm);
+    letter-spacing: 0.18em; text-transform: uppercase;
+    font-variation-settings: "opsz" 14;
+  }
+  .kpi-block h4 {
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-variation-settings: "opsz" 36;
+    font-size: 22px; font-weight: 400;
+    color: var(--bright);
+    letter-spacing: -0.018em;
+    line-height: 1.2;
+  }
+  .kpi-block p {
+    font-size: 14px; font-weight: 400; line-height: 1.65;
+    color: rgba(248,242,228,0.90);
+    max-width: 32ch;
+  }
+  .kpi-block .target-mini {
+    margin-top: 8px; padding-top: 14px;
+    border-top: 1px solid rgba(253,195,56,0.22);
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-style: italic; font-variation-settings: "opsz" 18;
+    font-size: 14.5px; color: var(--gold-warm);
+    letter-spacing: 0.005em;
+  }
+
+  /* ═══ CTA en cierre ═══ */
+  .close .cta {
+    margin-top: 56px;
+    display: inline-flex; align-items: center; gap: 14px;
+    padding: 18px 36px;
+    border: 1px solid var(--gold);
+    background: rgba(201,168,118,0.04);
+    color: var(--gold-warm);
+    font-family: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    font-style: italic; font-size: 14px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    font-variation-settings: "opsz" 14;
+    text-decoration: none;
+    transition: background 0.4s, color 0.4s, transform 0.3s;
+  }
+  .close .cta:hover {
+    background: var(--gold);
+    color: var(--navy);
+    transform: translateY(-2px);
+  }
+  .close .cta .arrow { transition: transform 0.4s; }
+  .close .cta:hover .arrow { transform: translateX(4px); }
+
+  /* ═══ PRINT ═══ */
+  @media print {
+    body::before { display: none; }
+    nav, .progress, .hero-bottom, video, .close .cta { display: none !important; }
+    section, .chapter, .cobrand, .cine, .close { page-break-inside: avoid; break-inside: avoid; }
+    .hero, .cine, .close { min-height: auto !important; height: auto !important; padding: 60px !important; }
+    .hero .media, .cine .media, .close .media { position: relative !important; height: 400px !important; }
+    .typo, .twin-wrap, .invest, .kpis, .benchmark, .split { padding: 60px !important; }
+    .typo-scene, .invest-cols, .twin-grid, .split-grid, .benchmark-grid, .kpis-grid { gap: 30px !important; }
+    .title, .twin-title, h2, h3 { color: #14213D !important; }
+    .chapter.dark, .twin-wrap, .typo, .kpis, .close { background: white !important; color: #14213D !important; }
+    .chapter.dark *, .typo *, .kpis * { color: #14213D !important; }
+    .gold, em, .typo-huge { color: #A88851 !important; }
+    body { background: white !important; color: #14213D !important; font-size: 11pt; }
+    .nav-brand, .nav-links { color: #14213D !important; }
+  }
+
+  /* ═══ RESPONSIVE — MOBILE FIRST ═══ */
+  @media (max-width: 640px) {
+    body { font-size: 15px; }
+    nav { padding: 14px 20px; }
+    nav.scrolled { padding: 10px 20px; }
+    .nav-brand { font-size: 11px; letter-spacing: 0.15em; }
+    .progress { height: 2px; }
+
+    /* Hero mobile */
+    .hero { padding: 100px 24px 60px; min-height: 100vh; }
+    .hero-top { top: 80px; left: 24px; right: 24px; font-size: 9.5px; letter-spacing: 0.18em; }
+    .hero-h1-wrap h1 { font-size: clamp(44px, 12vw, 72px); line-height: 1.02; }
+    .hero-thesis { padding-bottom: 8px; }
+    .hero-thesis .quote { font-size: 16px; line-height: 1.45; max-width: none; }
+    .hero-thesis .tease { font-size: 10px; }
+
+    /* Cobrand mobile */
+    .cobrand { padding: 70px 24px; }
+    .cobrand-pre { font-size: 10px; letter-spacing: 0.22em; margin-bottom: 30px; }
+    .cobrand-pre .ln, .cobrand-foot .ln { width: 30px; }
+    .cobrand-statement { font-size: clamp(26px, 7vw, 36px); margin-bottom: 44px; max-width: 22ch; }
+    .cobrand-logos { gap: 28px; margin-bottom: 32px; }
+    .cobrand img { height: 56px; }
+    .cobrand img.bliss { height: 70px; }
+    .cobrand .x { font-size: 22px; }
+    .cobrand-foot { font-size: 10px; }
+
+    /* Chapter marks */
+    .chapter::before { top: 56px; left: 24px; width: 48px; }
+    .mark { margin-bottom: 28px; gap: 14px; }
+    .mark .ro { font-size: 14px; }
+    .mark .lb { font-size: 10px; letter-spacing: 0.18em; }
+
+    /* Typo statement */
+    .typo-statement { padding: 90px 24px 70px; }
+    .huge-statement { font-size: clamp(36px, 9vw, 54px); line-height: 1.0; margin: 30px 0 40px; }
+    .statement-foot { display: flex; flex-direction: column; gap: 26px; padding-top: 32px; }
+    .statement-foot .lead-text { font-size: 17px; line-height: 1.5; }
+    .statement-foot .pull-text { font-size: 15px; }
+
+    /* Chapter titles */
+    .title { font-size: clamp(30px, 7.5vw, 44px); line-height: 1.1; margin-bottom: 28px; max-width: none; }
+    .lead { font-size: 17px; line-height: 1.48; margin-bottom: 24px; max-width: none; }
+    .body-text { font-size: 15px; line-height: 1.6; max-width: none; }
+    .pull p { font-size: 16px; line-height: 1.4; }
+
+    /* Split */
+    .split { padding: 80px 24px 60px; }
+    .split-head { margin-bottom: 40px; }
+    .split-grid, .split-grid.reverse { grid-template-columns: 1fr !important; gap: 32px; }
+    .split-grid .media { aspect-ratio: 4/5; }
+    .split-grid.landscape .media { aspect-ratio: 16/10; }
+
+    /* Cine */
+    .cine { min-height: 68vh; }
+    .cine-caption.tl { top: 40px; left: 24px; }
+    .cine-caption.br, .cine-caption.bl { bottom: 36px; left: 24px; right: 24px; max-width: none; text-align: left; }
+    .cine-caption .big { font-size: clamp(24px, 6vw, 36px); max-width: 18ch; }
+    .cine-caption .detail { font-size: 13px; }
+    .cine-caption .ro, .cine-caption .lb { font-size: 10px; }
+    .cine::after { display: none; }
+
+    /* Cine-portrait */
+    .cine-portrait { grid-template-columns: 1fr !important; min-height: auto; }
+    .cine-portrait .pframe { min-height: 55vh; }
+    .cine-portrait .pcontent { padding: 60px 24px; }
+    .cine-portrait .pcontent::before { top: 40px; left: 24px; width: 48px; }
+    .cine-portrait .pmark { margin-bottom: 22px; }
+    .cine-portrait .ptitle { font-size: clamp(28px, 7vw, 40px); max-width: none; margin-bottom: 24px; }
+    .cine-portrait .pdetail { font-size: 15px; max-width: none; padding-top: 22px; }
+
+    /* Twin */
+    .twin-wrap { padding: 80px 24px 60px; }
+    .twin-head { margin-bottom: 44px; }
+    .twin-grid { grid-template-columns: 1fr !important; gap: 2px; }
+    .twin-card { min-height: 420px; padding: 36px 28px; }
+    .twin-title { font-size: 28px; max-width: none; margin-bottom: 16px; }
+    .twin-desc { font-size: 14px; max-width: none; margin-bottom: 20px; }
+    .twin-features { font-size: 12.5px; }
+    .twin-label { font-size: 10px; letter-spacing: 0.18em; }
+
+    /* Activations */
+    .activations-wrap { padding: 80px 24px 60px; }
+    .act-header { margin-bottom: 46px; }
+    .act-list { grid-template-columns: 1fr !important; gap: 36px; }
+    .act-entry { gap: 18px; }
+    .act-num { font-size: 18px; min-width: 32px; padding-top: 4px; }
+    .act-entry h4 { font-size: 20px; margin-bottom: 8px; }
+    .act-entry p { font-size: 14px; max-width: none; }
+
+    /* Numbers */
+    .numbers-wrap { padding: 80px 24px 60px; }
+    .num-header { margin-bottom: 50px; }
+    .typo-scenes .typo-scene, .typo-scene.hero-scene, .typo-supports {
+      grid-template-columns: 1fr !important; gap: 32px;
+    }
+    .typo-scene.hero-scene { padding: 30px 0 40px; }
+    .typo-scene.hero-scene .typo-huge { font-size: clamp(80px, 24vw, 120px); }
+    .typo-scene.hero-scene .typo-label { font-size: clamp(22px, 5.8vw, 30px); max-width: none; }
+    .typo-ctx { font-size: 14px; max-width: none; }
+    .typo-supports { padding-top: 36px; gap: 40px; }
+    .typo-support .num { font-size: clamp(44px, 14vw, 64px); }
+    .typo-support .lbl { font-size: 16px; }
+    .typo-support .ctx-mini { font-size: 12.5px; max-width: none; }
+    .typo-foot { margin-top: 40px; font-size: 17px; padding-top: 28px; }
+
+    /* Benchmark */
+    .benchmark { padding: 80px 24px 60px; }
+    .benchmark-head { margin-bottom: 48px; }
+    .benchmark-grid { grid-template-columns: 1fr !important; gap: 20px; }
+    .benchmark-card { padding: 28px 0; }
+    .benchmark-card.bliss { padding: 34px 26px; min-height: 280px; }
+    .benchmark-card.bliss h4 { font-size: 28px; }
+    .benchmark-card.bliss .meta { font-size: 14px; max-width: none; }
+    .benchmark-card h4 { font-size: 21px; }
+    .benchmark-card .meta { font-size: 13px; }
+    .benchmark-foot { margin-top: 44px; padding-top: 32px; font-size: 16px; }
+
+    /* Tree divider */
+    .tree-divider { padding: 40px 0; }
+    .tree-divider svg { width: 120px; }
+
+    /* Invest */
+    .invest { padding: 80px 24px 60px; }
+    .invest-head { margin-bottom: 48px; }
+    .invest-cols { grid-template-columns: 1fr !important; gap: 48px; }
+    .invest-col h3 { font-size: 22px; }
+    .invest-col h3 em { font-size: 16px; }
+    .invest-entry h5 { font-size: 16px; }
+    .invest-entry p { font-size: 13px; max-width: none; }
+    .invest-note { flex-direction: column; gap: 16px; margin-top: 50px; }
+    .invest-note-ln { display: none; }
+    .invest-note p { font-size: 14px; }
+
+    /* KPIs */
+    .kpis { padding: 80px 24px 60px; }
+    .kpis-head { margin-bottom: 48px; }
+    .kpi-lead, .kpi-supports { grid-template-columns: 1fr !important; gap: 32px; padding-top: 36px; }
+    .kpi-lead h4 { font-size: clamp(28px, 7vw, 40px); max-width: none; }
+    .kpi-lead .lead-text { font-size: 16px; margin-bottom: 22px; }
+    .kpi-lead .target { font-size: 18px; padding-top: 18px; max-width: none; }
+    .kpi-block h4 { font-size: 19px; }
+    .kpi-block p { font-size: 13.5px; max-width: none; }
+    .kpi-block .target-mini { font-size: 13.5px; }
+
+    /* Closing */
+    .close { padding: 90px 24px 100px; }
+    .close h2 { font-size: clamp(32px, 9vw, 54px); margin-bottom: 32px; max-width: 14ch; }
+    .close .quote { font-size: 17px; max-width: 30ch; margin-bottom: 30px; }
+    .close .rule { margin: 36px auto; }
+    .close .ask { font-size: 10px; margin-bottom: 40px; letter-spacing: 0.2em; }
+    .close .ask .ln { width: 22px; }
+    .close .cta { padding: 14px 24px; font-size: 12px; letter-spacing: 0.16em; margin-top: 36px; }
+    .close-signature { gap: 22px; margin-bottom: 32px; flex-wrap: wrap; justify-content: center; }
+    .close-signature img { height: 52px; }
+    .close-signature img.corona-mark { height: 46px; padding: 8px 14px; }
+    .close-signature .x { font-size: 20px; }
+    .close-brand { font-size: 20px; letter-spacing: 0.2em; }
+    .close-sub { font-size: 10px; }
+    .close-foot { bottom: 24px; gap: 14px; font-size: 9px; padding: 0 16px; flex-wrap: wrap; justify-content: center; }
+  }
+
+  @media (max-width: 1024px) {
+    nav { padding: 16px 26px; }
+    nav.scrolled { padding: 12px 26px; }
+    .nav-links { display: none; }
+    .chapter::before { top: 56px; left: 28px; }
+    .split, .twin, .typo, .invest, .cobrand { padding: 120px 28px 80px; }
+    .close { padding: 120px 28px; }
+    .split-grid, .split-grid.reverse, .twin-grid, .invest-cols, .typo-scene,
+    .typo-scene.hero-scene, .typo-supports, .kpi-lead, .kpi-supports,
+    .cine-portrait, .cine-portrait.reverse, .benchmark-grid, .hero-content,
+    .statement-foot {
+      grid-template-columns: 1fr !important; gap: 50px;
+    }
+    .cine-portrait { min-height: auto; }
+    .cine-portrait .pframe { min-height: 60vh; }
+    .cine-portrait .pcontent { padding: 60px 28px; }
+    .cine-portrait .pcontent::before { top: 56px; left: 28px; }
+    .benchmark-card.bliss { min-height: 320px; padding: 36px 28px; }
+    .hero { padding: 120px 28px 60px; }
+    .hero-top { left: 28px; right: 28px; font-size: 10px; }
+    .cine-caption.tl { top: 44px; left: 28px; }
+    .cine-caption.br, .cine-caption.bl {
+      bottom: 40px; left: 28px; right: 28px; max-width: none; text-align: left;
+    }
+    .cobrand-logos { gap: 44px; }
+    .cobrand img { height: 64px; }
+    .invest-total { grid-template-columns: 1fr; gap: 28px; }
+    .twin-card { min-height: 480px; padding: 44px; }
+  }
+
+  @media (min-width: 1800px) {
+    .split-inner, .invest-inner { max-width: 1400px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Progress bar -->
+<div class="progress" id="progress"></div>
+
+<!-- Wave/horizon symbol (Corona-native motif) -->
+<svg style="display:none;" aria-hidden="true">
+  <symbol id="wave" viewBox="0 0 200 24">
+    <path d="M0 12 Q25 4, 50 12 T100 12 T150 12 T200 12" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round"/>
+    <path d="M0 18 Q25 14, 50 18 T100 18 T150 18 T200 18" fill="none" stroke="currentColor" stroke-width="0.5" stroke-linecap="round" opacity="0.5"/>
+  </symbol>
+  <symbol id="crown-mark" viewBox="0 0 40 24">
+    <path d="M4 20 L4 14 L10 8 L14 14 L20 6 L26 14 L30 8 L36 14 L36 20 Z" fill="none" stroke="currentColor" stroke-width="0.9" stroke-linejoin="round"/>
+    <line x1="4" y1="22" x2="36" y2="22" stroke="currentColor" stroke-width="0.7"/>
+  </symbol>
+</svg>
+
+<!-- ═══ NAV ═══ -->
+<nav id="nav">
+  <div class="nav-brand">Casa Corona <span class="x">×</span> Bliss</div>
+  <div class="nav-links">
+    <a href="#ch1"><span>I</span>El lugar</a>
+    <a href="#ch2"><span>II</span>Dos casas</a>
+    <a href="#ch3"><span>III</span>La experiencia</a>
+    <a href="#ch4"><span>IV</span>El mercado</a>
+    <a href="#bench"><span>V</span>Precedentes</a>
+    <a href="#ch5"><span>VI</span>La estructura</a>
+    <a href="#kpis"><span>VII</span>Retorno</a>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="media"><img src="casa-corona-assets/hero-aerial.jpeg" alt=""></div>
+  <div class="hero-top">
+    <div><span class="ro">—</span>Propuesta · MMXXVI</div>
+    <div>Guatapé · Antioquia<br>Colombia</div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-h1-wrap">
+      <h1>Casa<br><em>Corona</em><br>Bliss</h1>
+    </div>
+    <div class="hero-thesis">
+      <p class="quote">Un territorio permanente para la marca, donde la playa más fotografiada de Colombia ya está ocurriendo.</p>
+      <div class="tease">La casa, no el patrocinio</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ COBRAND ═══ -->
+<div class="cobrand">
+  <div class="cobrand-pre">
+    <span class="ln"></span>
+    <span>Una alianza · MMXXVI</span>
+    <span class="ln"></span>
+  </div>
+  <h2 class="cobrand-statement">
+    La marca global encuentra<br>
+    <em>su primera casa</em> en Colombia.
+  </h2>
+  <div class="cobrand-logos">
+    <img src="casa-corona-assets/logo-corona.png" alt="Corona">
+    <span class="x">×</span>
+    <img src="casa-corona-assets/logo-bliss.png" class="bliss" alt="Bliss">
+  </div>
+  <div class="cobrand-foot">
+    <span class="ln"></span>
+    <span>Guatapé · Antioquia</span>
+    <span class="ln"></span>
+  </div>
+</div>
+
+<!-- ═══ I.α CINE-PORTRAIT — AERIAL EMBALSE ═══ -->
+<section class="cine-portrait">
+  <div class="pframe">
+    <img src="casa-corona-assets/aerial-island.jpeg" loading="lazy" alt="">
+  </div>
+  <div class="pcontent">
+    <div class="pmark">
+      <span class="ro">I.</span>
+      <span class="lb">El lugar</span>
+    </div>
+    <h2 class="ptitle">
+      El embalse más visitado<br><em>de Antioquia.</em>
+    </h2>
+    <p class="pdetail">
+      Tres millones setecientos mil visitantes al año ya llegan a Guatapé. La audiencia de Corona ya está aquí — falta decidir dónde se encuentra con la marca.
+    </p>
+  </div>
+</section>
+
+<!-- ═══ I. EL LUGAR — TIPOGRÁFICO ═══ -->
+<section class="chapter typo-statement bright" id="ch1">
+  <div class="typo-statement-inner">
+    <div class="mark">
+      <span class="ro">I.i</span>
+      <span class="lb">Tesis</span>
+    </div>
+    <h2 class="huge-statement">
+      No hay que transformar Bliss.<br>
+      Bliss ya <em>es</em> Corona.
+    </h2>
+    <div class="statement-foot">
+      <p class="lead-text">
+        Bliss no es un venue que Corona tenga que adaptar. Es un territorio que ya contiene los cuatro elementos del ADN de la marca: naturaleza, agua, atardecer, lifestyle.
+      </p>
+      <p class="pull-text">
+        — Falta una sola decisión: la de habitarlo.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ II. DOS CASAS ═══ -->
+<section class="chapter twin dark" id="ch2">
+  <div class="twin-inner">
+    <div class="twin-head">
+      <div class="mark">
+        <span class="ro">II.</span>
+        <span class="lb">Dos casas</span>
+      </div>
+      <h2 class="title">
+        Un solo territorio, <em>dos velocidades.</em>
+      </h2>
+    </div>
+    <div class="twin-grid">
+      <div class="twin-card">
+        <div class="media"><img src="casa-corona-assets/dj-booth.jpeg" loading="lazy" alt=""></div>
+        <div class="content">
+          <div class="twin-label">Bliss Club</div>
+          <h3 class="twin-title">Energía, encuentro, alcance</h3>
+          <p class="twin-desc">
+            Punto de reunión social, eventos insignia, experiencias de gran formato. Bar, restaurante, pool deck, habitaciones, jacuzzi. Marina privada y helipuerto para llegadas diferenciadas.
+          </p>
+          <p class="twin-features">
+            Capacidad hasta 300 personas · vista 360° · marina · helipuerto · jet ski · flyboard.
+          </p>
+        </div>
+      </div>
+      <div class="twin-card">
+        <div class="media"><img src="casa-corona-assets/glamping-sunset.jpeg" loading="lazy" alt=""></div>
+        <div class="content">
+          <div class="twin-label">Bliss Glamping</div>
+          <h3 class="twin-title">Permanencia, retiro, <em>profundidad</em></h3>
+          <p class="twin-desc">
+            Cinco domos temáticos sobre el embalse — Cristal, Aire, Agua, Tierra, Fuego. Estadías premium, retiros creativos, residencias de contenido. La experiencia Corona extendida más allá de la noche.
+          </p>
+          <p class="twin-features">
+            Cinco domos · acceso directo al agua · vista Piedra del Peñol · pensión completa.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ III.α CINE-PORTRAIT — HELI SUNSET ═══ -->
+<section class="cine-portrait reverse">
+  <div class="pcontent">
+    <div class="pmark">
+      <span class="ro">III.</span>
+      <span class="lb">La experiencia</span>
+    </div>
+    <h2 class="ptitle">
+      La marca <em>vivida,</em><br>no contada.
+    </h2>
+    <p class="pdetail">
+      Llegar, quedarse, regresar. Tres movimientos que convierten a Corona en un destino — no un spot, no una campaña, no una activación pasajera.
+    </p>
+  </div>
+  <div class="pframe">
+    <img src="casa-corona-assets/heli-sunset.jpeg" loading="lazy" alt="">
+  </div>
+</section>
+
+<!-- ═══ III.a LLEGAR ═══ -->
+<section class="chapter split dark" id="ch3">
+  <div class="split-inner">
+    <div class="split-head">
+      <div class="mark">
+        <span class="ro">III.i</span>
+        <span class="lb">Llegar</span>
+      </div>
+      <h2 class="title">
+        La experiencia empieza <em>antes</em> de llegar.
+      </h2>
+    </div>
+    <div class="split-grid">
+      <div class="media">
+        <video autoplay muted loop playsinline preload="metadata" poster="casa-corona-assets/heli-sunset.jpeg">
+          <source src="casa-corona-assets/video-3.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="split-text">
+        <p class="lead">
+          Por agua, por aire, por carretera. Tres rutas que convergen en un mismo gesto: el huésped entra a Casa Corona mucho antes de pisarla.
+        </p>
+        <p class="body-text">
+          Helipuerto propio para llegadas premium. Marina con lanchas privadas que conectan con los principales muelles del embalse. Carretera pavimentada a dos horas quince desde el Aeropuerto José María Córdova. <b>Ninguna otra propiedad en Guatapé ofrece los tres accesos</b>.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ III.b QUEDARSE ═══ -->
+<section class="chapter split bright">
+  <div class="split-inner">
+    <div class="split-head">
+      <div class="mark">
+        <span class="ro">III.ii</span>
+        <span class="lb">Quedarse</span>
+      </div>
+      <h2 class="title">
+        La marca, <em>después</em> del atardecer.
+      </h2>
+    </div>
+    <div class="split-grid reverse landscape">
+      <div class="split-text">
+        <p class="lead">
+          Suites y domos con vista al embalse permiten algo que ningún pop-up puede lograr: que la experiencia Corona se extienda durante la noche, el amanecer y el día siguiente.
+        </p>
+        <p class="body-text">
+          Cada habitación está orientada al agua. Las ventanas enmarcan el embalse como un cuadro. El despertar forma parte del relato de marca tanto como el atardecer. Es la diferencia entre <b>visitar Corona y vivir Corona</b>.
+        </p>
+      </div>
+      <div class="media"><img src="casa-corona-assets/suite-interior.jpeg" loading="lazy" alt=""></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ III.c CONTAR ═══ -->
+<section class="chapter split dark">
+  <div class="split-inner">
+    <div class="split-head">
+      <div class="mark">
+        <span class="ro">III.iii</span>
+        <span class="lb">Contar</span>
+      </div>
+      <h2 class="title">
+        Un set de rodaje <em>permanente.</em>
+      </h2>
+    </div>
+    <div class="split-grid">
+      <div class="media"><img src="casa-corona-assets/glamping-day.jpeg" loading="lazy" alt=""></div>
+      <div class="split-text">
+        <p class="lead">
+          El embalse. La Piedra. Los domos. El helipuerto. El pool deck. Treinta y cinco localizaciones fotogénicas dentro de un mismo perímetro.
+        </p>
+        <p class="body-text">
+          Cada experiencia que ocurre en Bliss es, simultáneamente, un activo de contenido. Creator residencies, producciones de campaña, shootings editoriales. Corona deja de comprar contenido y empieza a producirlo — <b>365 días al año, sin cerrar producción</b>.
+        </p>
+        <div class="pull">
+          <p>La campaña no se filma. Ocurre.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ III.β CINE CLOSER ═══ -->
+<section class="cine">
+  <div class="media">
+    <video autoplay muted loop playsinline preload="metadata" poster="casa-corona-assets/aerial-island.jpeg">
+      <source src="casa-corona-assets/video-2.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="cine-caption br">
+    <span class="ro">III.iv</span>
+    <span class="lb">Sobre el agua</span>
+    <div class="big">El embalse <em>en primera persona.</em></div>
+  </div>
+</section>
+
+<!-- ═══ IV. EL MERCADO ═══ -->
+<section class="chapter typo dark" id="ch4">
+  <div class="typo-inner">
+    <div class="typo-head">
+      <div class="mark">
+        <span class="ro">IV.</span>
+        <span class="lb">El mercado</span>
+      </div>
+      <h2 class="title">
+        El destino más visitado de Antioquia.
+      </h2>
+    </div>
+    <div class="typo-scenes">
+      <div class="typo-scene hero-scene">
+        <div class="typo-figure">
+          <span class="typo-index">IV.i — Volumen</span>
+          <span class="typo-huge"><span data-target="3.7">0</span><span class="sfx">M</span></span>
+        </div>
+        <div>
+          <div class="typo-label">Turistas al año <em>visitan Guatapé.</em></div>
+          <p class="typo-ctx">Flujo sostenido durante los doce meses del año. La audiencia premium de Corona ya está aquí — solo falta decidir dónde se encuentra con la marca de manera permanente.</p>
+        </div>
+      </div>
+
+      <div class="typo-supports">
+        <div class="typo-support">
+          <span class="typo-index">— Concentración</span>
+          <span class="num"><span data-target="38">0</span><span class="sfx">%</span></span>
+          <p class="lbl">Del turismo total <em>de Antioquia.</em></p>
+          <p class="ctx-mini">Un tercio del tráfico departamental converge en 70 km² alrededor del embalse.</p>
+        </div>
+        <div class="typo-support">
+          <span class="typo-index">— Intensidad</span>
+          <span class="num"><span data-target="70">0</span><span class="sfx">K</span></span>
+          <p class="lbl">Visitantes <em>en un fin de semana.</em></p>
+          <p class="ctx-mini">En temporada alta, más personas en 48 horas que muchos festivales en toda su edición.</p>
+        </div>
+        <div class="typo-support">
+          <span class="typo-index">— Permanencia</span>
+          <span class="num"><span data-target="365">0</span></span>
+          <p class="lbl">Días <em>de operación.</em></p>
+          <p class="ctx-mini">Un pop-up dura dos semanas. Casa Corona Bliss opera todos los días, sin temporada baja.</p>
+        </div>
+      </div>
+    </div>
+    <p class="typo-foot">
+      Colombia proyecta <b>siete millones y medio de visitantes internacionales en 2026</b>. Antioquia es el segundo departamento más visitado. Guatapé es su destino estrella — y no tiene aún una propiedad de marca global asociada.
+    </p>
+  </div>
+</section>
+
+<!-- ═══ V. PRECEDENTES (Benchmark global Casa Corona) ═══ -->
+<section class="chapter benchmark bright" id="bench">
+  <div class="benchmark-inner">
+    <div class="benchmark-head">
+      <div class="mark">
+        <span class="ro">V.</span>
+        <span class="lb">Precedentes</span>
+      </div>
+      <h2 class="title">
+        Casa Corona ya existe.<br><em>Falta la sede colombiana.</em>
+      </h2>
+    </div>
+    <div class="benchmark-grid">
+      <div class="benchmark-card bliss">
+        <div>
+          <span class="place">V.iii — Latinoamérica</span>
+          <h4>Casa Corona<br>Bliss · Guatapé</h4>
+          <p class="meta">La primera <b>sede permanente</b> de Casa Corona en Sudamérica. Operada localmente por Sancor MGMT. Año 1 como piloto, Años 2-3 con potencial de replicabilidad regional (Cartagena, San Andrés, Quito).</p>
+        </div>
+        <div class="badge">
+          <span class="ln"></span>
+          <span>Propuesta MMXXVI</span>
+        </div>
+      </div>
+      <div class="benchmark-side">
+        <div class="benchmark-card">
+          <span class="place">— Europa</span>
+          <h4>Casa Corona<br>Madrid · Barcelona</h4>
+          <p class="meta">Pop-up estacional con terrazas, gastronomía y música. Operado por <b>AB InBev</b> desde 2016 — fórmula validada en mercado europeo premium.</p>
+        </div>
+        <div class="benchmark-card">
+          <span class="place">— Asia</span>
+          <h4>Casa Corona<br>Seúl · Tokio</h4>
+          <p class="meta">Activación de marca permanente en mercados asiáticos. Demuestra que el formato escala globalmente con la misma narrativa de marca.</p>
+        </div>
+      </div>
+    </div>
+    <p class="benchmark-foot">
+      Corona Sunsets opera en Ibiza, Tulum, Seúl y Cape Town. Casa Corona Bliss completa el mapa: la sede sudamericana que el portafolio global no tiene aún.
+    </p>
+  </div>
+</section>
+
+<!-- Tree divider -->
+<div class="tree-divider">
+  <svg><use href="#wave" style="color:var(--gold-deep);"></use></svg>
+</div>
+
+<!-- ═══ VI. LA ESTRUCTURA ═══ -->
+<section class="chapter invest bright" id="ch5">
+  <div class="invest-inner">
+    <div class="invest-head">
+      <div class="mark">
+        <span class="ro">VI.</span>
+        <span class="lb">La estructura</span>
+      </div>
+      <h2 class="title">
+        Corona construye. Bliss <em>opera.</em>
+      </h2>
+      <p class="lead">
+        Un activo permanente de marca, no un patrocinio anual. El primer club branded Corona en Colombia — operado, mantenido y producido por un equipo local con track record.
+      </p>
+    </div>
+    <div class="invest-cols">
+      <div class="invest-col">
+        <h3><em>A.</em>Corona aporta</h3>
+        <div class="invest-entry">
+          <h5>Remodelación integral</h5>
+          <p>Interiorismo, mobiliario, iluminación y acabados alineados al manual de marca.</p>
+        </div>
+        <div class="invest-entry">
+          <h5>Identidad visual</h5>
+          <p>Señalética, aplicaciones de marca, branding arquitectónico interior y exterior.</p>
+        </div>
+        <div class="invest-entry">
+          <h5>Portafolio exclusivo</h5>
+          <p>Bar con Corona Extra, Cero y Tropical en exclusiva. Exclusividad total de categoría cerveza.</p>
+        </div>
+        <div class="invest-entry">
+          <h5>Calendario de activaciones</h5>
+          <p>Co-producción de la programación anual de experiencias — alineada al calendario global de marketing.</p>
+        </div>
+        <div class="invest-entry">
+          <h5>Producción de contenido</h5>
+          <p>Equipo y recursos para operar el content hub durante todo el año.</p>
+        </div>
+      </div>
+      <div class="invest-col">
+        <h3><em>B.</em>Bliss aporta</h3>
+        <div class="invest-entry">
+          <h5>El venue</h5>
+          <p>Ubicación sobre el embalse, infraestructura existente, marina y helipuerto. Licencias operativas al día.</p>
+        </div>
+        <div class="invest-entry">
+          <h5>Operación</h5>
+          <p>Equipo completo, cocina del Chef Juan Estrada, logística y mantenimiento.</p>
+        </div>
+        <div class="invest-entry">
+          <h5>Hospedaje</h5>
+          <p>Los cinco domos y las habitaciones del club, disponibles en régimen de gestión conjunta.</p>
+        </div>
+        <div class="invest-entry">
+          <h5>Experiencias acuáticas</h5>
+          <p>Flota, equipos, guías. Operación integral desde el muelle propio.</p>
+        </div>
+        <div class="invest-entry">
+          <h5>Red local</h5>
+          <p>Acuerdos con operadores, transporte, gobierno municipal y ecosistema turístico de Guatapé.</p>
+        </div>
+      </div>
+    </div>
+    <div class="invest-note">
+      <span class="invest-note-ln"></span>
+      <p>Estructura de inversión detallada — CapEx, OpEx y calendario de desembolsos — se entrega en <em>term sheet separado</em>, sujeto a auditoría y aprobación bilateral.</p>
+      <span class="invest-note-ln"></span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ VII. RETORNO (KPIs) ═══ -->
+<section class="chapter kpis dark" id="kpis">
+  <div class="kpis-inner">
+    <div class="kpis-head">
+      <div class="mark">
+        <span class="ro">VII.</span>
+        <span class="lb">Retorno</span>
+      </div>
+      <h2 class="title">
+        Cómo se mide <em>el éxito.</em>
+      </h2>
+    </div>
+    <div class="kpis-grid">
+      <div class="kpi-lead">
+        <div>
+          <div class="index">VII.i — Brand reach</div>
+          <h4>Impresiones <em>generadas</em> al año.</h4>
+        </div>
+        <div>
+          <p class="lead-text">
+            Tráfico físico anual del venue + reach orgánico del contenido producido in-house + amplificación de creators residentes. La métrica primaria de toda activación Corona, ahora medible en tiempo real desde un dashboard compartido.
+          </p>
+          <div class="target">Target Año 1 : 25 – 40 millones</div>
+        </div>
+      </div>
+      <div class="kpi-supports">
+        <div class="kpi-block">
+          <div class="index">— Earned media</div>
+          <h4>Valor publicitario equivalente</h4>
+          <p>Cobertura ganada en medios de lifestyle, viajes y entretenimiento. Contenido orgánico que sustituye campañas pagadas.</p>
+          <div class="target-mini">USD 1.2 – 2.0M EMV</div>
+        </div>
+        <div class="kpi-block">
+          <div class="index">— Volumen</div>
+          <h4>Hectolitros Corona vendidos</h4>
+          <p>Bar exclusivo del portafolio. Ventas directas + impacto multiplicador en distribución regional por asociación de marca.</p>
+          <div class="target-mini">1,500 – 2,500 hl</div>
+        </div>
+        <div class="kpi-block">
+          <div class="index">— Loyalty</div>
+          <h4>NPS & data CRM</h4>
+          <p>Captura de huéspedes premium. NPS &gt; 70. Base CRM cualificada para campañas top-of-funnel de Corona Colombia.</p>
+          <div class="target-mini">+12,000 contactos / año</div>
+        </div>
+      </div>
+    </div>
+    <p class="benchmark-foot" style="color:rgba(248,242,228,0.7);">
+      Reportes trimestrales con dashboard compartido. Auditoría anual independiente. Renovación del acuerdo sujeta a cumplimiento de mínimo el 70% de los targets.
+    </p>
+  </div>
+</section>
+
+<!-- Tree divider dark -->
+<div class="tree-divider dark">
+  <svg><use href="#wave" style="color:var(--gold-warm);"></use></svg>
+</div>
+
+<!-- ═══ CIERRE ═══ -->
+<section class="close">
+  <div class="media">
+    <video autoplay muted loop playsinline preload="metadata" poster="casa-corona-assets/glamping-sunset.jpeg">
+      <source src="casa-corona-assets/glamping-video.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="pre">
+    <span class="ln"></span>
+    <span>— Cierre —</span>
+    <span class="ln"></span>
+  </div>
+  <h2>Una casa, <em>no un patrocinio.</em></h2>
+  <div class="rule"></div>
+  <p class="quote">
+    No una presencia. Un territorio.<br>
+    No una campaña. Una casa.
+  </p>
+  <div class="ask">
+    <span class="ln"></span>
+    <span>Casa Corona Bliss · Guatapé</span>
+    <span class="ln"></span>
+  </div>
+  <a href="mailto:info@sancormgmt.com?subject=Casa%20Corona%20Bliss%20%E2%80%94%20Term%20sheet&body=Buenas%20tardes%2C%0A%0AMe%20interesa%20revisar%20el%20term%20sheet%20detallado%20de%20Casa%20Corona%20Bliss.%0A%0A" class="cta">
+    Solicitar term sheet <span class="arrow">→</span>
+  </a>
+  <div class="close-signature">
+    <img src="casa-corona-assets/logo-corona.png" class="corona-mark" alt="Corona">
+    <span class="x">×</span>
+    <img src="casa-corona-assets/logo-bliss.png" alt="Bliss">
+  </div>
+  <div class="close-foot">
+    <span>Sancor MGMT</span>
+    <span>·</span>
+    <a href="mailto:info@sancormgmt.com">info@sancormgmt.com</a>
+  </div>
+</section>
+
+<script>
+// Nav scrolled + progress bar
+const nav = document.getElementById('nav');
+const prog = document.getElementById('progress');
+let ticking = false;
+window.addEventListener('scroll', () => {
+  if (!ticking) {
+    requestAnimationFrame(() => {
+      const s = window.scrollY;
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      prog.style.width = (s/h*100) + '%';
+      nav.classList.toggle('scrolled', s > 100);
+      ticking = false;
+    });
+    ticking = true;
+  }
+}, { passive: true });
+
+// Counter animation
+const counterObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target;
+    if (el.dataset.done) return;
+    el.dataset.done = '1';
+    const target = parseFloat(el.dataset.target);
+    const dur = 1400;
+    const start = performance.now();
+    (function tick(now) {
+      const p = Math.min((now - start) / dur, 1);
+      const ease = 1 - Math.pow(1 - p, 3);
+      const v = target * ease;
+      if (target < 10) el.textContent = v.toFixed(1);
+      else el.textContent = Math.round(v);
+      if (p < 1) requestAnimationFrame(tick);
+    })(performance.now());
+    counterObs.unobserve(el);
+  });
+}, { threshold: 0.4, rootMargin: '0px 0px -10% 0px' });
+document.querySelectorAll('[data-target]').forEach(el => counterObs.observe(el));
+
+// Video fade-in
+document.querySelectorAll('video').forEach(v => {
+  v.style.opacity = '0';
+  v.style.transition = 'opacity 0.8s ease';
+  v.addEventListener('canplay', () => { v.style.opacity = '1'; }, { once: true });
+});
+
+// Parallax on hero/cine/close media
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (!reduceMotion) {
+  const pEls = document.querySelectorAll('.hero .media, .cine .media, .close .media');
+  let pTicking = false;
+  function pUpdate() {
+    pEls.forEach(el => {
+      const rect = el.parentElement.getBoundingClientRect();
+      const vh = window.innerHeight;
+      if (rect.bottom < 0 || rect.top > vh) return;
+      const center = rect.top + rect.height / 2;
+      const offset = (center - vh / 2) * 0.15;
+      el.style.transform = `translate3d(0, ${-offset}px, 0)`;
+    });
+  }
+  window.addEventListener('scroll', () => {
+    if (!pTicking) {
+      requestAnimationFrame(() => { pUpdate(); pTicking = false; });
+      pTicking = true;
+    }
+  }, { passive: true });
+  pUpdate();
+}
+</script>
+
+</body>
+</html>
