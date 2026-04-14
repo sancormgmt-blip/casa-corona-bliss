@@ -1765,7 +1765,7 @@
       </h2>
     </div>
     <div class="split-grid">
-      <div class="media">
+      <div class="media" style="background-image:url('casa-corona-assets/heli-sunset.jpeg');background-size:cover;background-position:center 30%;">
         <video autoplay muted loop playsinline preload="metadata" poster="casa-corona-assets/heli-sunset.jpeg">
           <source src="casa-corona-assets/video-3.mp4" type="video/mp4">
         </video>
@@ -1839,7 +1839,7 @@
 
 <!-- ═══ III.β CINE CLOSER ═══ -->
 <section class="cine">
-  <div class="media">
+  <div class="media" style="background-image:url('casa-corona-assets/aerial-island.jpeg');background-size:cover;background-position:center;">
     <video autoplay muted loop playsinline preload="metadata" poster="casa-corona-assets/aerial-island.jpeg">
       <source src="casa-corona-assets/video-2.mp4" type="video/mp4">
     </video>
@@ -2080,7 +2080,7 @@
 
 <!-- ═══ CIERRE ═══ -->
 <section class="close">
-  <div class="media">
+  <div class="media" style="background-image:url('casa-corona-assets/glamping-sunset.jpeg');background-size:cover;background-position:center;">
     <video autoplay muted loop playsinline preload="metadata" poster="casa-corona-assets/glamping-sunset.jpeg">
       <source src="casa-corona-assets/glamping-video.mp4" type="video/mp4">
     </video>
@@ -2167,11 +2167,16 @@ const counterObs = new IntersectionObserver((entries) => {
 }, { threshold: 0.4, rootMargin: '0px 0px -10% 0px' });
 document.querySelectorAll('[data-target]').forEach(el => counterObs.observe(el));
 
-// Video fade-in
+// Video fade-in con fallback de 1.5s + handler de error
 document.querySelectorAll('video').forEach(v => {
   v.style.opacity = '0';
   v.style.transition = 'opacity 0.8s ease';
-  v.addEventListener('canplay', () => { v.style.opacity = '1'; }, { once: true });
+  const show = () => { v.style.opacity = '1'; };
+  v.addEventListener('canplay', show, { once: true });
+  v.addEventListener('loadeddata', show, { once: true });
+  v.addEventListener('error', show, { once: true });
+  // Fallback absoluto: mostrar después de 1.5s pase lo que pase (poster se verá)
+  setTimeout(show, 1500);
 });
 
 // Parallax on hero/cine/close media
